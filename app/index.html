@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Coast Cover Studio — drag photos into a 9-panel sunset poster</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <h1>Neon Coast<br>Cover Studio</h1>
+    <p class="tagline">Drag up to 3 photos into a sun-bleached 9-panel grid, stamp the caption in neon, export a poster PNG. Photos never leave your machine.</p>
+
+    <fieldset>
+      <legend>1 · Photos</legend>
+      <label>Photo 1 <input id="photo0" type="file" accept="image/*"></label>
+      <label>Photo 2 <input id="photo1" type="file" accept="image/*"></label>
+      <label>Photo 3 <input id="photo2" type="file" accept="image/*"></label>
+      <div class="row">
+        <button id="samples" type="button">Use sample photos</button>
+        <button id="fillOne" type="button">Fill all panels with Photo 1</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>2 · Layout — 6 poster grids</legend>
+      <div class="pick" id="layouts"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>3 · Sunset grade — 5 grades</legend>
+      <div class="pick" id="grades"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>4 · Caption lettering</legend>
+      <label>Title <input id="title" type="text" maxlength="28" value="NEON COAST"></label>
+      <label>Neon subtitle <input id="subtitle" type="text" maxlength="40" value="a sunset story"></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>5 · Selected panel — crop &amp; position</legend>
+      <label>Panel
+        <select id="panelSelect"></select>
+      </label>
+      <label>Photo in this panel
+        <select id="panelPhoto"></select>
+      </label>
+      <label>Zoom <span id="zoomVal">100%</span>
+        <input id="zoom" type="range" min="100" max="260" value="100">
+      </label>
+      <label>Move left / right <input id="panX" type="range" min="-40" max="40" value="0"></label>
+      <label>Move up / down <input id="panY" type="range" min="-40" max="40" value="0"></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>6 · Export size</legend>
+      <div class="pick" id="sizes"></div>
+      <button id="export" type="button" class="big">Export PNG</button>
+      <p id="status" role="status"></p>
+    </fieldset>
+  </section>
+
+  <section class="preview" aria-label="Live cover preview">
+    <canvas id="cover" width="1080" height="1080" aria-label="The cover preview"></canvas>
+    <p class="hint">Click a panel in the preview to select it, then drag it to reposition the photo inside.</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
